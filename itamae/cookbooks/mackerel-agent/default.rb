@@ -13,6 +13,13 @@ execute "add api key" do
   not_if "grep #{api_key} /etc/mackerel-agent/mackerel-agent.conf"
 end
 
+file "/var/lib/mackerel-agent/id" do
+  mode "0644"
+  owner "root"
+  group "root"
+  content node[:secrets][:"mackerel-id"]
+end
+
 service "mackerel-agent" do
   action [ :start, :enable ]
 end
