@@ -13,7 +13,7 @@ file "/etc/apt/preferences.d/backports" do
   group "root"
   content <<-EOS
 Package: *
-  Pin: release a=#{node[:debian_release]}-backports
-  Pin-Priority: 600
+Pin: release a=#{node[:debian_release]}-backports
+Pin-Priority: 600
 EOS
 end
