@@ -18,3 +18,19 @@ passwd
 ```
 
 しておくと吉(しとかないとsudoできないよ)。
+
+## つかいかた
+
+### Apply
+
+```
+rake apply:sakura.nna774.net REMOTE_USER=nona
+```
+
+apply calls dry-run and requires confirmation before applying.
+
+### Dry-run
+
+```
+rake dryrun:sakura.nna774.net REMOTE_USER=nona
+```
