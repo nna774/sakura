@@ -13,6 +13,6 @@ package ntp do
   action :install
 end
 
-service ntp do
+service 'ntpd' do
   action [:enable, :start]
 end

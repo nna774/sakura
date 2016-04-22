@@ -1,8 +1,8 @@
-ssh = 'ssh'
+ssh = node[:sshd]
 package ssh do
   action :install
 end
 
-service ssh do
+service 'sshd' do
   action [:enable, :start]
 end

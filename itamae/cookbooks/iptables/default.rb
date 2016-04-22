@@ -1,4 +1,4 @@
-template "/etc/iptables.rules" do
+template "/etc/sysconfig/iptables" do
   action :create
   mode "0644"
   owner "root"

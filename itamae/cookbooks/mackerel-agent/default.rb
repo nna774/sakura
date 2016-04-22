@@ -1,6 +1,6 @@
-execute "add mackerel-agent apt repo" do
-  command "curl -fsSL https://mackerel.io/assets/files/scripts/setup-apt.sh | sh"
-  not_if "test -e /etc/apt/sources.list.d/mackerel.list"
+execute "add mackerel-agent repo" do
+  command "curl -fsSL https://mackerel.io/assets/files/scripts/setup-yum.sh | sh"
+  not_if "test -e /etc/yum.repos.d/mackerel.repo"
 end
 
 package 'mackerel-agent' do
