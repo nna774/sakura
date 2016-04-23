@@ -54,6 +54,13 @@ template "/etc/nginx/nginx.conf" do
   notifies :reload, "service[nginx]"
 end
 
+file "/etc/nginx/conf.d/sakura.conf" do
+  mode "0644"
+  owner "root"
+  group "root"
+  notifies :reload, "service[nginx]"
+end
+
 service "nginx" do
   action [ :start, :enable ]
 end
