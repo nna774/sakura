@@ -18,6 +18,7 @@ file "/var/lib/mackerel-agent/id" do
   owner "root"
   group "root"
   content node[:secrets][:"mackerel-id"]
+  notifies :reload, "service[mackerel-agent]"
 end
 
 service "mackerel-agent" do
