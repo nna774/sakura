@@ -8,9 +8,13 @@ package 'mackerel-agent' do
 end
 
 api_key = node[:secrets][:"mackerel-apikey"]
-execute "add api key" do
-  command "echo 'apikey = \"#{api_key}\"' >> /etc/mackerel-agent/mackerel-agent.conf"
-  not_if "grep #{api_key} /etc/mackerel-agent/mackerel-agent.conf"
+template "/etc/mackerel-agent/mackerel-agent.conf" do
+  action :create
+  mode "0644"
+  owner "root"
+  group "root"
+  variables(api_key: api_key)
+  notifies :restart, "service[mackerel-agent]"
 end
 
 file "/var/lib/mackerel-agent/id" do
@@ -18,8 +22,10 @@ file "/var/lib/mackerel-agent/id" do
   owner "root"
   group "root"
   content node[:secrets][:"mackerel-id"]
-  notifies :reload, "service[mackerel-agent]"
+  notifies :restart, "service[mackerel-agent]"
 end
+
+include_cookbook 'mackerel-agent::plugins'
 
 service "mackerel-agent" do
   action [ :start, :enable ]
