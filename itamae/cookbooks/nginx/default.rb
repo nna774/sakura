@@ -22,6 +22,8 @@ directory "/home/passenger" do
   mode "755"
 end
 
+include_cookbook 'nginx::ci_deploy'
+
 packages = %w(passenger passenger-devel)
 packages.each do |package|
   package package do
@@ -54,7 +56,7 @@ template "/etc/nginx/nginx.conf" do
   notifies :reload, "service[nginx]"
 end
 
-file "/etc/nginx/conf.d/sakura.conf" do
+remote_file "/etc/nginx/conf.d/sakura.conf" do
   mode "0644"
   owner "root"
   group "root"
