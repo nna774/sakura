@@ -5,7 +5,7 @@ packages.each do |package|
   end
 end
 
-file '/etc/sudoers' do
+remote_file '/etc/sudoers' do
   owner 'root'
   group 'root'
   mode '400'
