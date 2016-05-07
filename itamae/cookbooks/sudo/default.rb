@@ -4,3 +4,9 @@ packages.each do |package|
     action :install
   end
 end
+
+file '/etc/sudoers' do
+  owner 'root'
+  group 'root'
+  mode '400'
+end

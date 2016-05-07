@@ -61,7 +61,7 @@ nona ALL=(ALL) ALL
            end
 
   file '/etc/sudoers.d/nona' do
-    content "#{sudoer}\n"
+    content "#{sudoer}"
     owner 'root'
     group 'root'
     mode '440'
