@@ -6,7 +6,7 @@ node.reverse_merge!(iptables: {
 node.reverse_merge!(sshd: "openssh-server")
 
 node.reverse_merge!("mackerel-agent": {
-                      "plugin-version": "0.19.4"
+                      "plugin-version": "0.20.0"
                     })
 
 include_role 'base'
@@ -20,3 +20,4 @@ include_cookbook 'mackerel-agent'
 include_cookbook 'letsencrypt'
 include_cookbook 'postfix'
 include_cookbook 'cron'
+include_cookbook 'capistrano'

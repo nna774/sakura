@@ -12,3 +12,5 @@ group :itamae do
   gem 'itamae-secrets'
   gem 'highline'
 end
+
+gem 'capistrano'
