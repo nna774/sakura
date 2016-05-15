@@ -12,6 +12,8 @@ set :deploy_to, '/var/itamae'
 
 set :scm, :git
 
+set :log_level, :debug
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -35,12 +37,8 @@ set :scm, :git
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:sakura) do
-      output = capture "uptime"
-      info output
-    end
+  task :uptime do
+    output = capture "uptime"
+    info output
   end
-
 end
