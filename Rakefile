@@ -19,7 +19,13 @@ Pathname.glob('itamae/hosts/*').select(&:directory?).each do |hostdir|
   namespace :apply do
     task hostname => "dryrun:#{hostname}" do
       fail 'Aborted.' unless agree('Are you sure to proceed?')
+      Rake::Task["exec:#{hostname}"].invoke
+    end
+  end
 
+  desc "Cook on #{hostname} with no dry-run"
+  namespace :exec do
+    task hostname do
       sh itamae_command(hostname, ENV['REMOTE_USER'], dryrun: false).shelljoin
     end
   end
