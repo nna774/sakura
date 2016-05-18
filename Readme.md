@@ -2,14 +2,16 @@
 
 ## 注意
 
-kagoyaなら、インスタンス作ってから、
+~~kagoyaなら、インスタンス作ってから、~~
 
 ```
 apt-get install debian-archive-keyring
 apt-get update
 ```
 
-しないと走りません。
+~~しないと走りません。~~
+
+CentOSになった。
 
 rootで
 
