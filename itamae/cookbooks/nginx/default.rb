@@ -2,7 +2,7 @@ include_cookbook 'ruby'
 
 execute "add nginx repo" do
   command "curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo"
-  not_if "test -e  /etc/yum.repos.d/passenger.repo"
+  not_if "test -e /etc/yum.repos.d/passenger.repo"
 end
 
 package "nginx" do
@@ -47,6 +47,18 @@ end
 
 package "pygpgme" do
   action :install
+end
+
+execute "/etc/nginx/dhparam.pem" do
+  command "touch /etc/nginx/dhparam.pem && chown nginx:root /etc/nginx/dhparam.pem && chmod 660 /etc/nginx/dhparam.pem && openssl dhparam -out /etc/nginx/dhparam.pem 2048 && chmod 440 /etc/nginx/dhparam.pem"
+  not_if "test -e /etc/nginx/dhparam.pem"
+end
+
+template "/etc/nginx/tls_intermediate.conf" do
+  mode "0644"
+  owner "root"
+  group "root"
+  notifies :reload, "service[nginx]"
 end
 
 remote_file "/etc/nginx/nginx.conf" do
