@@ -14,7 +14,7 @@ end
 
 user "droneio" do
   uid 2001
-  gid "httpcontent"
+  gid 2000
   home "/home/droneio"
 end
 
