@@ -23,6 +23,13 @@ https://pbs.twimg.com/media/BeWJQSuCIAAN4ls.jpg
 https://pbs.twimg.com/media/BdsvbA-CYAAjw3_.jpg
 https://pbs.twimg.com/media/BcbTiKDCMAEwKik.jpg
 https://pbs.twimg.com/media/BhEDeAkCMAAXfnM.jpg
+https://pbs.twimg.com/media/Bewe5AdCIAEsz87.jpg
+https://pbs.twimg.com/media/Bea8yrACAAAoY74.jpg
+https://pbs.twimg.com/media/BdswO_kCIAAt37O.jpg
+https://pbs.twimg.com/media/BfPISmkCEAEd4-a.jpg
+https://pbs.twimg.com/media/BfPI9daCMAEcBo5.jpg
+https://pbs.twimg.com/media/BfPUXivCAAAOhbK.jpg
+https://pbs.twimg.com/media/BcFoPS9CUAAsE0e.jpg
 ).join(' ')
 template "/usr/local/bin/fail2ban_slack.sh" do
   action :create
