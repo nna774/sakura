@@ -1,0 +1,17 @@
+[DEFAULT]
+banaction = iptables-multiport
+action = slack[name=%(__name__)s]
+
+[sshd]
+enabled = true
+bantime = 3600
+maxretry = 3
+backend=systemd
+
+[recidive]
+enabled = true
+filter = recidive
+maxretry = 3
+action = %(action_mwl)s
+         slack[name=%(__name__)s]
+logpath = /var/log/fail2ban.log
