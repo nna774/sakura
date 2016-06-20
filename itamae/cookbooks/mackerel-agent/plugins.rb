@@ -1,6 +1,6 @@
 version = node[:"mackerel-agent"][:"plugin-version"]
 
-//  /etc/yum.repos.d/mackerel.repo を置いて yum install したらいいんでは。
+# /etc/yum.repos.d/mackerel.repo を置いて yum install したらいいんでは。
 
 package "https://github.com/mackerelio/mackerel-agent-plugins/releases/download/v#{version}/mackerel-agent-plugins-#{version}-1.x86_64.rpm" do
   action :install
