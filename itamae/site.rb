@@ -1,5 +1,6 @@
 require 'itamae/secrets'
 require 'pathname'
+require 'pry'
 
 def node.dig(*keys)
   keys.inject(self) do |h, k|
