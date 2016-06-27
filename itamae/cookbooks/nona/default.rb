@@ -59,11 +59,4 @@ nona ALL=(ALL) ALL
            else
              raise "unknown node[:nona][:sudo] (#{node[:nona][:sudo].inspect})"
            end
-
-  file '/etc/sudoers.d/nona' do
-    content "#{sudoer}"
-    owner 'root'
-    group 'root'
-    mode '440'
-  end
 end
