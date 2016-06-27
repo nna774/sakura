@@ -36,3 +36,17 @@ apply calls dry-run and requires confirmation before applying.
 ```
 rake dryrun:sakura.nna774.net REMOTE_USER=nona
 ```
+
+### for local use
+
+#### Apply
+
+```
+rake local LOCAL_HOST=sazanami.nna774.net
+```
+
+#### Dry-run
+
+```
+rake local:dryrun LOCAL_HOST=sazanami.nna774.net
+```
