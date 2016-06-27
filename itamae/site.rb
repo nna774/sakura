@@ -1,5 +1,6 @@
 require 'itamae/secrets'
 require 'pathname'
+require 'pry'
 
 node[:env] = (ENV['ITAMAE_ENV'] || :production).to_sym
 node[:secrets] = Itamae::Secrets(File.join(__dir__, 'secrets'))
