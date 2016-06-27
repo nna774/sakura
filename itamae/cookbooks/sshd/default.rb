@@ -1,4 +1,4 @@
-ssh = node[:sshd]
+ssh = node[:sshd] || "openssh"
 package ssh do
   action :install
 end
