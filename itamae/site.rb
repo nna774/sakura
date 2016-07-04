@@ -1,6 +1,12 @@
 require 'itamae/secrets'
 require 'pathname'
 
+def node.dig(*keys)
+  keys.inject(self) do |h, k|
+    h[k] or return nil
+  end
+end
+
 node[:env] = (ENV['ITAMAE_ENV'] || :production).to_sym
 node[:secrets] = Itamae::Secrets(File.join(__dir__, 'secrets'))
 
