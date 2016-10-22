@@ -1,4 +1,5 @@
 node.reverse_merge!(host: "sakura.nna774.net")
+node.reverse_merge!(name: "sakura")
 #node.reverse_merge!(debian_release: 'wheezy')
 node.reverse_merge!(iptables: {
                       open_ports: [22, 80, 110, 143, 443], # 110 and 143 for tor

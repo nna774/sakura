@@ -36,7 +36,7 @@ template "/usr/local/bin/fail2ban_slack.sh" do
   mode "0755"
   owner "root"
   group "root"
-  variables(fail2ban_slack_wh_uri: fail2ban_slack_wh_uri, slack_icon_uris: slack_icon_uris)
+  variables(fail2ban_slack_wh_uri: fail2ban_slack_wh_uri, slack_icon_uris: slack_icon_uris, name: node[:name])
 end
 
 service "fail2ban" do
