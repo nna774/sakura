@@ -14,6 +14,8 @@ node.reverse_merge!(dns: {
                       servers: %w(8.8.8.8 8.8.4.4),
                     })
 
+node.reverse_merge!("use_package": true)
+
 node.reverse_merge!(utils:{ packages: %w(epel-release gcc-c++ bind-utils)})
 
 include_role 'base'
