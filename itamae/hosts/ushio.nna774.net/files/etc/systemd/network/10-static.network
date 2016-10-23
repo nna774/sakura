@@ -5,3 +5,4 @@ Name=enp0s25
 DHCP=ipv6
 Address=10.8.8.35
 Gateway=10.8.8.12
+IPv6PrivacyExtensions=true
