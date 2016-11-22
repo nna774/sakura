@@ -1,4 +1,5 @@
 node.reverse_merge!(host: "sakura.nna774.net")
+node.reverse_merge!(name: "sakura")
 #node.reverse_merge!(debian_release: 'wheezy')
 node.reverse_merge!(iptables: {
                       open_ports: [22, 25, 80, 110, 143, 443], # 110 and 143 for tor
@@ -12,6 +13,8 @@ node.reverse_merge!("mackerel-agent": {
 node.reverse_merge!(dns: {
                       servers: %w(8.8.8.8 8.8.4.4),
                     })
+
+node.reverse_merge!("use_package": true)
 
 node.reverse_merge!(utils:{ packages: %w(epel-release gcc-c++ bind-utils)})
 

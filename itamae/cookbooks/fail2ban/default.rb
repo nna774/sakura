@@ -1,9 +1,29 @@
-package "jwhois" do
-  action :install
+if node[:"use_package"] then
+  package "jwhois" do
+    action :install
+  end
+
+  package "fail2ban" do
+    action :install
+  end
+elsif node[:"use_portage"]
+  portage "net-analyzer/fail2ban" do
+    action :install
+  end
+else
+  throw "how??"
 end
 
-package "fail2ban" do
-  action :install
+file "/var/log/fail2ban.log" do
+  mode "0600"
+  owner "root"
+  group "root"
+end
+
+directory "/run/fail2ban" do
+  mode "0644"
+  owner "root"
+  group "root"
 end
 
 files = %w(/etc/fail2ban/jail.local /etc/fail2ban/action.d/slack.conf)
@@ -36,7 +56,7 @@ template "/usr/local/bin/fail2ban_slack.sh" do
   mode "0755"
   owner "root"
   group "root"
-  variables(fail2ban_slack_wh_uri: fail2ban_slack_wh_uri, slack_icon_uris: slack_icon_uris)
+  variables(fail2ban_slack_wh_uri: fail2ban_slack_wh_uri, slack_icon_uris: slack_icon_uris, name: node[:name])
 end
 
 service "fail2ban" do

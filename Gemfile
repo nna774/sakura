@@ -12,3 +12,5 @@ group :itamae do
   gem 'itamae-secrets'
   gem 'highline'
 end
+
+gem 'itamae-plugin-resource-portage'

@@ -2,33 +2,35 @@ GEM
   remote: https://rubygems.org/
   specs:
     ansi (1.5.0)
-    coderay (1.1.0)
-    hashie (3.4.3)
+    coderay (1.1.1)
+    hashie (3.4.6)
     highline (1.7.8)
-    itamae (1.9.2)
+    itamae (1.9.9)
       ansi
       hashie
       schash (~> 0.1.0)
       specinfra (>= 2.37.0, < 3.0.0)
       thor
+    itamae-plugin-resource-portage (0.1.0.beta1)
+      itamae
     itamae-secrets (0.1.0)
       thor
     method_source (0.8.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
+    net-ssh (3.2.0)
     net-telnet (0.1.1)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rake (10.5.0)
+    rake (11.3.0)
     schash (0.1.2)
-    sfl (2.2)
+    sfl (2.3)
     slop (3.6.0)
-    specinfra (2.50.3)
+    specinfra (2.63.3)
       net-scp
-      net-ssh (>= 2.7, < 3.1)
+      net-ssh (>= 2.7, < 4.0)
       net-telnet
       sfl
     thor (0.19.1)
@@ -39,9 +41,10 @@ PLATFORMS
 DEPENDENCIES
   highline
   itamae
+  itamae-plugin-resource-portage
   itamae-secrets
   pry
   rake
 
 BUNDLED WITH
-   1.11.2
+   1.13.5
