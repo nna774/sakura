@@ -40,4 +40,8 @@ end
   end
 end
 
+service "systemd-networkd" do
+  action [ :start, :enable ]
+end
+
 include_cookbook 'fail2ban'
