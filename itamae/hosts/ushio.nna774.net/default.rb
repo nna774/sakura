@@ -16,6 +16,19 @@ app-misc/jq
 app-admin/sudo
 app-editors/emacs
 sys-apps/smartmontools
+net-fs/nfs-utils
+app-shells/zsh
+www-servers/nginx
+sys-fs/btrfs-progs
+app-portage/eix
+net-misc/telnet-bsd
+net-im/ejabberd
+app-crypt/certbot
+net-analyzer/traceroute
+app-i18n/nkf
+app-portage/repoman
+net-ftp/tftp-hpa
+media-gfx/imagemagick
 }.each do |p|
   portage p do
   end
@@ -45,3 +58,22 @@ service "systemd-networkd" do
 end
 
 include_cookbook 'fail2ban'
+
+# timers
+%w{
+update-ddns
+}.each do |t|
+  remote_file "/etc/systemd/system/#{t}.service" do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+  remote_file "/etc/systemd/system/#{t}.timer" do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+  service "#{t}.timer" do
+    action [ :start, :enable ]
+  end
+end

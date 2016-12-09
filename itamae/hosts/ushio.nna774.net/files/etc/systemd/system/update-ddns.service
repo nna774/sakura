@@ -1,0 +1,10 @@
+[Unit]
+Description=update dns
+
+[Service]
+ExecStart=/usr/local/bin/update-ddns
+Type=oneshot
+User=nobody
+
+[Install]
+WantedBy=multi-user.target
