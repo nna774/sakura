@@ -1,0 +1,16 @@
+[Match]
+Name=br0
+
+[Network]
+Address=10.8.8.35
+Address=2001:470:FD54:0::35/64
+Gateway=10.8.8.12
+Gateway=2001:470:FD54::1
+LinkLocalAddressing=no
+#IPv6PrivacyExtensions=prefer-public
+
+[Route]
+#Source=2001:470:FD54:0::35
+
+[Link]
+MACAddress=00:00:00:00:00:35

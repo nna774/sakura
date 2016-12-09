@@ -2,7 +2,4 @@
 Name=enp0s25
 
 [Network]
-DHCP=ipv6
-Address=10.8.8.35
-Gateway=10.8.8.12
-IPv6PrivacyExtensions=true
+Bridge=br0

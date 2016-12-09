@@ -28,10 +28,16 @@ end
 portage "net-misc/autossh" do
 end
 
-remote_file "/etc/systemd/network/10-static.network" do
-  mode "0644"
-  owner "root"
-  group "root"
+%w{
+/etc/systemd/network/09-br0.netdev
+/etc/systemd/network/10-static.network
+/etc/systemd/network/11-static.network
+}.each do |f|
+  remote_file f do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
 end
 
 include_cookbook 'fail2ban'
