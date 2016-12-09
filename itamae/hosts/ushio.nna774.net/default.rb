@@ -58,3 +58,22 @@ service "systemd-networkd" do
 end
 
 include_cookbook 'fail2ban'
+
+# timers
+%w{
+update-ddns
+}.each do |t|
+  remote_file "/etc/systemd/system/#{t}.service" do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+  remote_file "/etc/systemd/system/#{t}.timer" do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+  service "#{t}.timer" do
+    action [ :start, :enable ]
+  end
+end
