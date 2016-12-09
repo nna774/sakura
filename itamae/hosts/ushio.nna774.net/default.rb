@@ -16,6 +16,19 @@ app-misc/jq
 app-admin/sudo
 app-editors/emacs
 sys-apps/smartmontools
+net-fs/nfs-utils
+app-shells/zsh
+www-servers/nginx
+sys-fs/btrfs-progs
+app-portage/eix
+net-misc/telnet-bsd
+net-im/ejabberd
+app-crypt/certbot
+net-analyzer/traceroute
+app-i18n/nkf
+app-portage/repoman
+net-ftp/tftp-hpa
+media-gfx/imagemagick
 }.each do |p|
   portage p do
   end
