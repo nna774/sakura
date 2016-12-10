@@ -1,0 +1,9 @@
+[Unit]
+Description=emerge sync timer
+
+[Timer]
+OnBootSec=1d
+OnUnitActiveSec=2d
+
+[Install]
+WantedBy=timers.target

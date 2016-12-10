@@ -62,6 +62,7 @@ include_cookbook 'fail2ban'
 # timers
 %w{
 update-ddns
+emerge-sync
 }.each do |t|
   remote_file "/etc/systemd/system/#{t}.service" do
     mode "0644"
