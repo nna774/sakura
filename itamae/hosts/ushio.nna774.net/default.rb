@@ -99,6 +99,7 @@ file "/etc/unbound/root-anchors.txt" do
   mode "0644"
   owner "root"
   group "root"
+  not_if "test -e /etc/unbound/root-anchors.txt"
 end
 service "unbound" do
   action [ :start, :enable ]
