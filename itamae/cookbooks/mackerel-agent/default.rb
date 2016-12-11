@@ -41,6 +41,13 @@ end
 
 include_cookbook 'mackerel-agent::plugins' if node["use_package"]
 
+template "/etc/systemd/system/mackerel-agent.service" do
+  mode "0644"
+  owner "root"
+  group "root"
+  notifies :restart, "service[mackerel-agent]"
+end
+
 service "mackerel-agent" do
   action [ :start, :enable ]
 end

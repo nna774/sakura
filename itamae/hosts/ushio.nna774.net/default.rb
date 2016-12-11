@@ -104,3 +104,5 @@ end
 service "unbound" do
   action [ :start, :enable ]
 end
+
+include_cookbook "mackerel-agent"

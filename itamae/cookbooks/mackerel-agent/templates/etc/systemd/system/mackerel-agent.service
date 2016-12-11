@@ -1,0 +1,11 @@
+[Unit]
+Description=Mackerel Agent
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mackerel-agent
+Restart=always
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
