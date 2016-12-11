@@ -120,3 +120,8 @@ execute "set owner" do
   command "chown -R portage:portage /usr/local/portage"
 end
 remote_file "/etc/portage/repos.conf/local.conf"
+
+remote_file "/etc/systemd/system/autossh.service"
+service "autossh" do
+  action [ :start, :enable ]
+end
