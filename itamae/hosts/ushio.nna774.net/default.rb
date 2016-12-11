@@ -106,3 +106,17 @@ service "unbound" do
 end
 
 include_cookbook "mackerel-agent"
+
+%w{
+/etc/portage/repos.conf
+}.each do |d|
+  directory d
+end
+git "/usr/local/portage" do
+  repository "git@github.com:nna774/myOverlay.git"
+  revision "master"
+end
+execute "set owner" do
+  command "chown -R portage:portage /usr/local/portage"
+end
+remote_file "/etc/portage/repos.conf/local.conf"
