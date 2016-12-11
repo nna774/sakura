@@ -125,3 +125,11 @@ remote_file "/etc/systemd/system/autossh.service"
 service "autossh" do
   action [ :start, :enable ]
 end
+
+portage "mail-mta/postfix"
+directory "/etc/postfix"
+remote_file "/etc/postfix/main.cf"
+service "postfix" do
+  action [ :start, :enable ]
+end
+# /etc/mail/aliases
