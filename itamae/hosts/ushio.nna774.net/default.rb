@@ -78,3 +78,28 @@ emerge-sync
     action [ :start, :enable ]
   end
 end
+
+portage "net-dns/unbound"
+%w{
+/etc/unbound/unbound.conf
+/etc/unbound/nna774.net.conf
+}.each do |f|
+  remote_file f do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+end
+execute "get root.hint" do
+  command "curl -o /etc/unbound/root.hints https://www.internic.net/domain/named.cache"
+  not_if "test -e /etc/unbound/root.hints"
+end
+file "/etc/unbound/root-anchors.txt" do
+  content ". IN DS 19036 8 2 49AAC11D7B6F6446702E54A1607371607A1A41855200FD2CE1CDDE32F24E8FB5\n"
+  mode "0644"
+  owner "root"
+  group "root"
+end
+service "unbound" do
+  action [ :start, :enable ]
+end
