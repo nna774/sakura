@@ -1,0 +1,11 @@
+[Unit]
+Description=AutoSSH service
+After=network.target
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -NL 0.0.0.0:2525:localhost:25 -o TCPKeepAlive=yes nona@sakura.nna774.net -i /root/.ssh/autossh-sakura -g
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

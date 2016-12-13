@@ -1,7 +1,13 @@
 packages = %w(sudo)
 packages.each do |package|
-  package package do
-    action :install
+  if node[:"use_package"]
+    package package do
+      action :install
+    end
+  else if node[:"use_portage"]
+    portage package do
+      action :install
+    end
   end
 end
 

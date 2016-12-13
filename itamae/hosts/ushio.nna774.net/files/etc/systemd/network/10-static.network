@@ -1,7 +1,5 @@
 [Match]
-Name=enp0s25
+Name=enp0s29u1*
 
 [Network]
-DHCP=ipv6
-Address=10.8.8.35
-Gateway=10.8.8.12
+Bridge=br0
