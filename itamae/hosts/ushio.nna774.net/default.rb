@@ -16,7 +16,6 @@ app-misc/jq
 app-admin/sudo
 app-editors/emacs
 sys-apps/smartmontools
-net-fs/nfs-utils
 app-shells/zsh
 www-servers/nginx
 sys-fs/btrfs-progs
@@ -134,4 +133,14 @@ service "postfix" do
 end
 # /etc/mail/aliases
 
-include_cookbook "nona"
+#include_cookbook "nona"
+
+portage "net-fs/nfs-utils"
+service "rpcbind" do
+  action [ :start, :enable ]
+end
+service "rpc-statd" do
+  action [ :start, :enable ]
+end
+# /etc/fstab
+## 10.8.8.13:/home         /home           nfs             rw,relatime     0 0
