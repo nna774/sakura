@@ -1,13 +1,10 @@
-packages = %w(sudo)
-packages.each do |package|
-  if node[:"use_package"]
-    package package do
-      action :install
-    end
-  else if node[:"use_portage"]
-    portage package do
-      action :install
-    end
+if node[:"use_package"]
+  package "sudo" do
+    action :install
+  end
+elsif node[:"use_portage"]
+  portage "app-admin/sudo" do
+    action :install
   end
 end
 
