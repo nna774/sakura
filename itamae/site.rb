@@ -63,3 +63,13 @@ define :apt_key, keyname: nil do
     not_if "apt-key list | grep -q '/#{name} '"
   end
 end
+
+class Specinfra::Command::Gentoo::Base
+  class Service
+    class << self
+      include Specinfra::Command::Module::Service::Systemd
+      extend  Specinfra::Command::Module::Service::Delegator
+      def_delegator_service_under :systemd
+    end
+  end
+end
