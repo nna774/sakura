@@ -144,3 +144,7 @@ service "rpc-statd" do
 end
 # /etc/fstab
 ## 10.8.8.13:/home         /home           nfs             rw,relatime     0 0
+
+service "systemd-timesyncd.service" do
+  action [ :start, :enable ]
+end
