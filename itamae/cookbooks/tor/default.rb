@@ -8,6 +8,10 @@ package "tor" do
   action :install
 end
 
+service "tor" do
+  action [ :start, :enable ]
+end
+
 remote_file "/etc/tor/torrc" do
   mode "0644"
   owner "root"
