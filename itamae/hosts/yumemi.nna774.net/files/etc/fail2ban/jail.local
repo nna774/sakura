@@ -1,0 +1,26 @@
+[INCLUDES]
+before = paths-fedora.conf
+
+[DEFAULT]
+bantime = 864000
+ignoreip = 127.0.0.1/8 10.0.0.0/8
+banaction = iptables-multiport
+action = slack[name=%(__name__)s]
+
+[sshd]
+enabled  = true
+filter   = sshd
+action   = slack[name=%(__name__)s]
+           iptables[name=SSH, port=ssh, protocol=tcp]
+           sendmail-whois[name=SSH, dest=f2b@nna774.net, sender=f2b@yumemi.nna774.net]
+backend  = systemd
+maxretry = 5
+
+[recidive]
+enabled = true
+filter = recidive
+maxretry = 3
+action = %(action_mwl)s
+         slack[name=%(__name__)s]
+logpath = /var/log/fail2ban.log
+
