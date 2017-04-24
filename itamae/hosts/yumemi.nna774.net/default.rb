@@ -1,5 +1,5 @@
-node.reverse_merge!(host: "sakura.nna774.net")
-node.reverse_merge!(name: "sakura")
+node.reverse_merge!(host: "yumemi.nna774.net")
+node.reverse_merge!(name: "yumemi")
 node.reverse_merge!("use_package": true)
 
 package "openssh"
