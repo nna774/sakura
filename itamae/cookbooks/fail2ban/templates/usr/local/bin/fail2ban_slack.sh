@@ -2,7 +2,7 @@
 
 IP=$1
 NAME=$2
-HOST=`dig -x $IP PTR | grep -v -e ";" -e "^$" | head -n1 | cut -f5`
+HOST=`dig -x $IP +short`
 URIS=(<%= @slack_icon_uris %>)
 URI=${URIS[ $RANDOM % ${#URIS[@]} ]}
 
