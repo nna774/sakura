@@ -41,3 +41,14 @@ include_cookbook 'cron'
 include_cookbook 'tor'
 include_cookbook 'fail2ban'
 include_cookbook 'mongodb'
+
+[
+  '/etc/systemd/system/certbot-renew.service',
+  '/etc/systemd/system/certbot-renew.timer'
+].each do |f|
+  file f do
+    mode "0644"
+    owner "root"
+    group "root"
+  end
+end

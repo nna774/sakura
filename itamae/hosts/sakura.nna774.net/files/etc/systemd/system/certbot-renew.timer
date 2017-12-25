@@ -1,0 +1,9 @@
+[Unit]
+Description=Run certbot-renew
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=10d
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=certbot renew
+
+[Service]
+Type=oneshot
+ExecStart=/opt/letsencrypt/certbot-auto certonly --noninteractive --webroot -w /srv/http/ -d sakura.nna774.net -d nna774.net -d www.nna774.net --post-hook "systemctl r$
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
