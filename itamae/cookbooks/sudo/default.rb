@@ -11,5 +11,5 @@ end
 remote_file '/etc/sudoers' do
   owner 'root'
   group 'root'
-  mode '400'
+  mode '440'
 end
