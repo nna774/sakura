@@ -21,7 +21,7 @@ file "/var/log/fail2ban.log" do
 end
 
 directory "/run/fail2ban" do
-  mode "0644"
+  mode "0755"
   owner "root"
   group "root"
 end
