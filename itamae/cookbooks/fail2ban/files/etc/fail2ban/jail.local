@@ -1,6 +1,7 @@
 [DEFAULT]
-banaction = iptables-multiport
-action = slack[name=%(__name__)s]
+banaction = iptables-allports
+action = %(action_mwl)s
+         slack[name=%(__name__)s]
 
 [sshd]
 enabled = true
@@ -12,6 +13,4 @@ backend=systemd
 enabled = true
 filter = recidive
 maxretry = 3
-action = %(action_mwl)s
-         slack[name=%(__name__)s]
 logpath = /var/log/fail2ban.log
