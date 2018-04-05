@@ -52,3 +52,8 @@ include_cookbook 'mongodb'
     group "root"
   end
 end
+
+# Do not use extra IPv6 addresses assigned by ConoHa
+file '/etc/dhcp/dhclient.d/register_extra_ipv6_addresses.sh' do
+  action :delete
+end
