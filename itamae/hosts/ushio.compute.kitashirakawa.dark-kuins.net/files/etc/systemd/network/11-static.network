@@ -2,15 +2,16 @@
 Name=br0
 
 [Network]
-Address=10.8.8.35
-Address=2001:470:FD54:0::35/64
-Gateway=10.8.8.12
-Gateway=2001:470:FD54::1
+Address=10.8.20.35/24
 LinkLocalAddressing=no
-#IPv6PrivacyExtensions=prefer-public
+IPv6Token=::35
+IPv6AcceptRA=true
+
+DNS=127.0.0.1
+Domains=home.nna774.net
+
+VLAN=br0.50
 
 [Route]
-#Source=2001:470:FD54:0::35
-
-[Link]
-MACAddress=00:00:00:00:00:35
+Destination=10.8.0.0/16
+Gateway=10.8.20.1

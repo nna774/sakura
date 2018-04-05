@@ -1,0 +1,6 @@
+[NetDev]
+Name=br0.50
+Kind=vlan
+
+[VLAN]
+Id=50
