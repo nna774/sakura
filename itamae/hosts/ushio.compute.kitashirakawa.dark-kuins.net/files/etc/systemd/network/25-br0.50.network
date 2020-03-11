@@ -8,3 +8,6 @@ Address=2001:df0:8500:a700::35/64
 Gateway=2001:df0:8500:a700::1
 
 Domains=kitashirakawa.dark-kuins.net
+
+[Link]
+MTUBytes=1452
